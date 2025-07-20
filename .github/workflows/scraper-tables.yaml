@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies - your.email@example.com
+      - name: Install dependencies - 22f1000120@ds.study.iitm.ac.in
         run: |
           pip install playwright requests beautifulsoup4 lxml
 
