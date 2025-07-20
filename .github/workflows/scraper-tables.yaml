@@ -1,0 +1,39 @@
+name: Scrape Table Sums with Playwright
+
+on:
+  workflow_dispatch: # Manual trigger
+  schedule:
+    - cron: "0 0 * * 0" # Weekly on Sundays at midnight UTC
+  push:
+    branches: [main]
+
+jobs:
+  scrape-tables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies - your.email@example.com
+        run: |
+          pip install playwright requests beautifulsoup4 lxml
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install chromium
+
+      - name: Run table scraper
+        run: |
+          python scraper.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: scraping-results
+          path: results.txt
