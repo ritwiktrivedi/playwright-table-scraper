@@ -3,7 +3,7 @@ name: Scrape Table Sums with Playwright
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    - cron: "0 0 * * 0" # Weekly on Sundays at midnight UTC
+    - cron: "* * * * *" # Weekly on Sundays at midnight UTC
   push:
     branches: [main]
 
