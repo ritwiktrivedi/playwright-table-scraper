@@ -68,7 +68,7 @@ def main():
     failed_scrapes = 0
 
     # Scrape 10 pages with seeds from 87 to 96
-    for seed in range(87, 97):
+    for seed in range(49, 58):
         url = f"https://sanand0.github.io/tdsdata/js_table/?seed={seed}"
         page_total = scrape_with_js(url)
 
